@@ -15,7 +15,7 @@ public class MessagePublisher : IMessagePublisher
         using var connection = connectionFactory.CreateConnection();
         using var channel = connection.CreateModel();
 
-        channel.QueueDeclare("Orders");
+        channel.QueueDeclare("Orders", true, false, false, null);
 
         var json = JsonSerializer.Serialize(message);
         var body = Encoding.UTF8.GetBytes(json);
