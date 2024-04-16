@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQTurorialWebAPI.API", "RabbitMQTurorialWebAPI.API\RabbitMQTurorialWebAPI.API.csproj", "{AC326829-3DFB-4D91-BD69-41A25ACC0E3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RabbitMQTurorialWebAPI.Console", "RabbitMQTurorialWebAPI.Console\RabbitMQTurorialWebAPI.Console.csproj", "{02DFCADE-C3C3-47A1-B1A4-1D9AC99774CB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AC326829-3DFB-4D91-BD69-41A25ACC0E3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC326829-3DFB-4D91-BD69-41A25ACC0E3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC326829-3DFB-4D91-BD69-41A25ACC0E3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02DFCADE-C3C3-47A1-B1A4-1D9AC99774CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02DFCADE-C3C3-47A1-B1A4-1D9AC99774CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02DFCADE-C3C3-47A1-B1A4-1D9AC99774CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02DFCADE-C3C3-47A1-B1A4-1D9AC99774CB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
