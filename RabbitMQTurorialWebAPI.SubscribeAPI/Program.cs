@@ -1,26 +1,14 @@
+using MassTransit;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-//builder.Services.AddMassTransit(x =>
-//{
-//    x.AddConsumer<TicketConsumer>();
+builder.Services.AddMassTransit(busConfigurator =>
+{
+    busConfigurator.SetKebabCaseEndpointNameFormatter();
 
-//    x.UsingRabbitMq((context, cfg) =>
-//    {
-//        cfg.Host(new Uri("rabbitmq://localhost"), h =>
-//        {
-//            h.Username("guest");
-//            h.Password("guest");
-//        });
-
-//        cfg.ReceiveEndpoint("ticketQueue", ep =>
-//        {
-//            ep.PrefetchCount = 16;
-//            ep.UseMessageRetry(r => r.Interval(2, 100));
-//            ep.ConfigureConsumer<TicketConsumer>(context);
-//        });
-//    });
-//});
+    busConfigurator.UsingRabbitMq((context, configurator) => configurator.ConfigureEndpoints(context));
+});
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

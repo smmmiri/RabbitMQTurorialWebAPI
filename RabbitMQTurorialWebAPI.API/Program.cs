@@ -1,13 +1,13 @@
 using MassTransit;
-using RabbitMQTurorialWebAPI.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddScoped<IMessagePublisher, MessagePublisher>();
-builder.Services.AddMassTransit(configuration =>
+builder.Services.AddMassTransit(busConfigurator =>
 {
-    configuration.UsingRabbitMq();
+    busConfigurator.SetKebabCaseEndpointNameFormatter();
+
+    busConfigurator.UsingRabbitMq((context, configurator) => configurator.ConfigureEndpoints(context));
 });
 
 builder.Services.AddControllers();
