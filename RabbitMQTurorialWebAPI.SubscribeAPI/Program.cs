@@ -7,6 +7,9 @@ builder.Services.AddMassTransit(busConfigurator =>
 {
     busConfigurator.SetKebabCaseEndpointNameFormatter();
 
+    var assembly = typeof(Program).Assembly;
+    busConfigurator.AddConsumers(assembly);
+
     busConfigurator.UsingRabbitMq((context, configurator) => configurator.ConfigureEndpoints(context));
 });
 
