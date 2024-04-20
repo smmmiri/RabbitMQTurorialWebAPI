@@ -6,13 +6,13 @@ namespace RabbitMQTurorialWebAPI.API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class OrderController : ControllerBase
+public class TicketController : ControllerBase
 {
     private readonly IMessagePublisher _messagePublisher;
     private readonly IPublishEndpoint _publishEndpoint;
     private readonly IBus _bus;
 
-    public OrderController(IMessagePublisher messagePublisher, IBus bus, IPublishEndpoint publishEndpoint)
+    public TicketController(IMessagePublisher messagePublisher, IBus bus, IPublishEndpoint publishEndpoint)
     {
         _messagePublisher = messagePublisher;
         _bus = bus;
@@ -27,14 +27,11 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost("MassTransit")]
-    public async Task<IActionResult> MassTransitTicketOrder(Ticket ticket)
+    public async Task<IActionResult> MassTransitTicketOrder(TicketCreatedEvent ticket)
     {
-        await _publishEndpoint.Publish<ITicketOrdered>(new
+        await _publishEndpoint.Publish<TicketOrderedEvent>(new
         {
-            UserName = Guid.NewGuid().ToString(),
-            ticket.BookedOn,
-            ticket.Boarding,
-            ticket.Destination
+            UserName = Guid.NewGuid().ToString()
         });
 
         return Ok();
